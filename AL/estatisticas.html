@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estatísticas - Boxing Fight Pass</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="estatisticas.css" />
+  </head>
+  <body onload="iniciarPagina()">
+    <header class="barraNavegacao">
+      <div class="conteiner">
+        <a href="casa.html" class="logo">BOXING FIGHT PASS</a>
+        <nav>
+          <a href="login.html" class="botaoSair">Sair</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="conteinerPrincipal">
+      <div class="colunaEsquerda">
+        <h3>Filtrar Lutas</h3>
+
+        <input
+          type="text"
+          id="inputBusca"
+          placeholder="Pesquisar lutador..."
+          onkeyup="filtrarLutas()"
+        />
+
+        <div class="filtrosLinha">
+          <select id="selectCampeonato" onchange="filtrarLutas()">
+            <option value="">Organização</option>
+            <option value="WBA">WBA</option>
+            <option value="WBC">WBC</option>
+            <option value="IBF">IBF</option>
+            <option value="WBO">WBO</option>
+          </select>
+
+          <input
+            type="number"
+            id="inputAno"
+            placeholder="Ano"
+            onkeyup="filtrarLutas()"
+          />
+        </div>
+
+        <select id="selectCategoria" onchange="filtrarLutas()">
+          <option value="">Todas Categorias</option>
+          <option value="Pesado">Peso Pesado</option>
+          <option value="Medio">Peso Médio</option>
+          <option value="Leve">Peso Leve</option>
+        </select>
+
+        <div id="listaDeLutas" class="listaLutas"></div>
+      </div>
+
+      <div class="colunaDireita">
+        <h1>Análise da Luta</h1>
+        <p class="subtitulo" id="subtituloLuta">Carregando...</p>
+
+        <div class="cartaoComparacao">
+          <div class="lutadorEsquerda">
+            <img id="imgLutadorA" src="" alt="Lutador A" />
+            <h2 id="nomeLutadorA"></h2>
+            <span id="statusA" class="badgeStatus"></span>
+          </div>
+
+          <div class="tabelaDados">
+            <div class="linhaDado">
+              <span id="idadeA"></span>
+              <span class="rotulo">IDADE</span>
+              <span id="idadeB"></span>
+            </div>
+            <div class="linhaDado">
+              <span id="alturaA"></span>
+              <span class="rotulo">ALTURA</span>
+              <span id="alturaB"></span>
+            </div>
+            <div class="linhaDado">
+              <span id="alcanceA"></span>
+              <span class="rotulo">ALCANCE</span>
+              <span id="alcanceB"></span>
+            </div>
+            <div class="linhaDado">
+              <span id="cartelA"></span>
+              <span class="rotulo">CARTEL</span>
+              <span id="cartelB"></span>
+            </div>
+          </div>
+
+          <div class="lutadorDireita">
+            <img id="imgLutadorB" src="" alt="Lutador B" />
+            <h2 id="nomeLutadorB"></h2>
+            <span id="statusB" class="badgeStatus"></span>
+          </div>
+        </div>
+
+        <div class="painelGraficos">
+          <div class="cartaoGrafico">
+            <h3>Método de Vitória (Carreira)</h3>
+            <div class="areaCanvas">
+              <canvas id="graficoRosca"></canvas>
+            </div>
+          </div>
+
+          <div class="cartaoGrafico">
+            <h3>Golpes Conectados (Nesta Luta)</h3>
+            <div class="areaCanvas">
+              <canvas id="graficoBarras"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="cartaoPontuacao">
+          <h3>Sistema de Pontuação (10 Pontos)</h3>
+          <div class="gridRegras">
+            <div class="itemRegra">
+              <h4>Vencedor do Round</h4>
+              <span class="pontosDestaque">10 Pontos</span>
+              <p>Recebe a pontuação máxima por dominar a ação.</p>
+            </div>
+            <div class="itemRegra">
+              <h4>Perdedor do Round</h4>
+              <span class="pontosDestaque">9 Pontos</span>
+              <p>Recebe 9 ou menos dependendo do desempenho.</p>
+            </div>
+            <div class="itemRegra">
+              <h4>Knockdown (Queda)</h4>
+              <span class="pontosDestaque">-1 Ponto</span>
+              <p>Lutador que cai perde 1 ponto extra (10-8).</p>
+            </div>
+            <div class="itemRegra">
+              <h4>Critérios Avaliados</h4>
+              <ul class="listaCriterios">
+                <li>Quantidade de Golpes</li>
+                <li>Domínio do Ringue</li>
+                <li>Superioridade Técnica</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="estatisticas.js"></script>
+  </body>
+</html>

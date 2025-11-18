@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro - Boxing Fight Pass</title>
+    <link rel="stylesheet" href="cadastro.css" />
+  </head>
+  <body>
+    <div class="containerFormulario">
+      <div class="cartaoFormulario">
+        <a href="casa.html" class="logo">BOXING FIGHT PASS</a>
+
+        <h1>Crie sua Conta</h1>
+        <p>É rápido e fácil. Comece a assistir agora.</p>
+
+        <div class="grupoCampo">
+          <label for="iptNome">Seu Nome</label>
+          <input type="text" id="iptNome" placeholder="Seu nome completo" />
+        </div>
+
+        <div class="grupoCampo">
+          <label for="iptEmail">Seu E-mail</label>
+          <input type="email" id="iptEmail" placeholder="seu@email.com" />
+        </div>
+
+        <div class="grupoCampo">
+          <label for="iptSenha">Crie uma Senha</label>
+          <input
+            type="password"
+            id="iptSenha"
+            placeholder="Mínimo 8 caracteres"
+          />
+        </div>
+
+        <div class="grupoCampo">
+          <label for="iptConfirmarSenha">Confirme sua Senha</label>
+          <input
+            type="password"
+            id="iptConfirmarSenha"
+            placeholder="Repita a senha"
+          />
+        </div>
+
+        <button class="botaoAcao" onclick="fazerCadastro()">Criar Conta</button>
+
+        <div id="mensagemErro" class="mensagem"></div>
+
+        <span class="linkLogin">
+          Já tem uma conta? <a href="login.html">Faça login</a>
+        </span>
+      </div>
+    </div>
+
+    <script src="cadastro.js"></script>
+  </body>
+</html>

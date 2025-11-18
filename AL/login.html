@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Boxing Fight Pass</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="containerFormulario">
+      <div class="cartaoFormulario">
+        <a href="casa.html" class="logo">BOXING FIGHT PASS</a>
+
+        <h1>Entrar</h1>
+        <p>Acesse sua conta para ver o melhor do boxe.</p>
+
+        <div class="grupoCampo">
+          <label for="iptEmail">Seu E-mail</label>
+          <input type="email" id="iptEmail" placeholder="seu@email.com" />
+        </div>
+
+        <div class="grupoCampo">
+          <label for="iptSenha">Sua Senha</label>
+          <input type="password" id="iptSenha" placeholder="••••••••" />
+        </div>
+
+        <button class="botaoAcao" onclick="fazerLogin()">Entrar</button>
+
+        <div id="mensagemErro" class="mensagem"></div>
+
+        <span class="linkCadastro">
+          Não tem uma conta? <a href="cadastro.html">Cadastre-se</a>
+        </span>
+      </div>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
+</html>

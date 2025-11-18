@@ -1,0 +1,247 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.conteiner {
+  width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.barraNavegacao {
+  background-color: #000;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.barraNavegacao .conteiner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+.barraNavegacao nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 8px 15px;
+  margin-left: 10px;
+  border-radius: 4px;
+}
+
+.botaoContorno {
+  border: 2px solid #fff;
+}
+
+.botaoVermelho {
+  background-color: #d13a3a;
+}
+
+.secaoDestaque {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('https://box-sport.de/wp-content/uploads/2025/10/imago1059429076-1024x683.jpg');
+  background-size: cover;
+  background-position: center center;
+  padding: 150px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.secaoDestaque h1 {
+  font-size: 60px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.secaoDestaque p {
+  font-size: 24px;
+  margin: 10px 0 30px 0;
+}
+
+.botaoContornoVermelho {
+  border: 3px solid #d13a3a;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 22px;
+  font-weight: 700;
+  padding: 15px 40px;
+  text-decoration: none;
+}
+
+.secaoFuncionalidades {
+  background-color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.secaoFuncionalidades h2 {
+  font-size: 40px;
+  color: #333;
+  margin-top: 0;
+}
+
+.gradeFuncionalidades {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.cartaoFuncionalidade {
+  flex-basis: 400px;
+  text-align: left;
+}
+
+.cartaoFuncionalidade img {
+  width: 100%;
+}
+
+.cartaoFuncionalidade h3 {
+  font-size: 24px;
+  color: #d13a3a;
+  margin: 10px 0 5px 0;
+}
+
+.cartaoFuncionalidade p {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #555;
+  margin: 0;
+}
+
+.secaoPlanos {
+  background-color: #fff;
+  padding: 50px 0;
+  border-top: 1px solid #eee;
+}
+
+.secaoPlanos h2 {
+  font-size: 40px;
+  color: #333;
+  text-align: center;
+  margin-top: 0;
+}
+
+.conteudoPlanos {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.listaBeneficios {
+  flex: 2;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.listaBeneficios h3 {
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  color: #d13a3a;
+}
+
+.listaBeneficios ul {
+  list-style: none;
+  padding: 0;
+}
+
+.listaBeneficios li {
+  font-size: 16px;
+  line-height: 1.6;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  background: url("") ;
+  background-size: 18px;
+}
+
+.caixaPlano {
+  flex: 1;
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 30px;
+}
+
+.botaoContornoVermelhoGrande {
+  border: 2px solid #d13a3a;
+  color: #d13a3a;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 20px 40px;
+  text-decoration: none;
+  display: block;
+}
+
+.botaoContornoVermelhoGrande span {
+  display: block;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  margin-top: 5px;
+}
+
+.secaoDispositivos {
+  background-color: #1a1a1a;
+  padding: 50px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.secaoDispositivos h2 {
+  font-size: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rodape {
+  background-color: #000;
+  color: #888;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  padding: 30px 0;
+}
+
+.topoRodape {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.logoRodape {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 180px;
+}
+
+.linksRodape a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: auto;
+}
+
+.socialRodape span {
+  font-size: 20px;
+  color: #fff;
+  margin-left: 15px;
+}
+
+.fundoRodape {
+  text-align: center;
+  padding-top: 20px;
+}

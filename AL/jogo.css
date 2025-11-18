@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  text-align: center;
+}
+
+.barraNavegacao {
+  background-color: #000;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #333;
+  z-index: 1000;
+}
+
+.conteiner {
+  width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+.conteinerPrincipal {
+  width: 1100px;
+  margin: 40px auto;
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+#cenario {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  background-image: url("https://i.pinimg.com/736x/f3/ab/84/f3ab8417e4249b4165bc0946b1bb247e.jpg");
+  background-size: cover;
+  border: 4px solid white;
+}
+
+#imgCarro {
+  position: absolute;
+  bottom: 50px;
+  left: 150px;
+  width: 350px;
+  z-index: 1;
+}
+
+#imgLutador {
+  position: absolute;
+  bottom: 30px;
+  left: 80px;
+  width: 180px;
+  z-index: 2;
+}
+
+#painel {
+  margin-top: 30px;
+  background-color: #2b2b2b;
+  padding: 20px;
+  width: 600px;
+  margin: 20px auto;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.textoVida {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.corDestaque {
+  color: #d13a3a;
+  font-weight: bold;
+}
+
+.textoMensagem {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.botoesJogo {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.botaoAcao {
+  background-color: #d13a3a;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.botaoAcao:hover {
+  background-color: #e04a4a;
+}
+
+.botaoReiniciar {
+  background-color: transparent;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: 700;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.botaoReiniciar:hover {
+  background-color: #333;
+}

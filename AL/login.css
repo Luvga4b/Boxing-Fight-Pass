@@ -1,110 +1,94 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Reset básico */
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: Arial, sans-serif;
   background-color: #1a1a1a;
-  color: #ffffff;
+  color: white;
+  
+  /* Centraliza na tela */
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+  height: 100vh;
 }
 
-.containerFormulario {
-  width: 100%;
-  max-width: 450px;
-}
-
-.cartaoFormulario {
+.caixa-login {
   background-color: #2b2b2b;
+  width: 400px;
   padding: 40px;
   border-radius: 8px;
   text-align: center;
-  border: 1px solid #333;
+  border: 1px solid #444;
 }
 
 .logo {
-  font-size: 28px;
-  font-weight: 700;
-  color: #fff;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: none;
   display: block;
   margin-bottom: 20px;
-  text-decoration: none;
 }
 
 h1 {
-  font-weight: 700;
   margin-bottom: 10px;
+  font-size: 28px;
 }
 
-.cartaoFormulario > p {
-  font-family: Arial, sans-serif;
+p {
   color: #aaa;
   margin-bottom: 30px;
+  font-size: 14px;
 }
 
-.grupoCampo {
+label {
+  display: block;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-.grupoCampo label {
-  display: block;
-  font-weight: 700;
-  margin-bottom: 8px;
-  font-size: 18px;
-}
-
-.grupoCampo input {
+input {
   width: 100%;
-  padding: 12px 15px;
+  padding: 12px;
+  margin-bottom: 15px;
   background-color: #1a1a1a;
-  border: 1px solid #444;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
+  border: 1px solid #555;
+  color: white;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-.botaoAcao {
-  background-color: #d13a3a;
-  color: #fff;
-  padding: 15px 30px;
+button {
   width: 100%;
-  font-size: 20px;
-  font-weight: 700;
+  padding: 15px;
+  background-color: #d13a3a;
+  color: white;
   border: none;
-  border-radius: 5px;
-  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 5px;
   margin-top: 10px;
-  font-family: Arial, sans-serif;
 }
 
-.botaoAcao:hover {
-  background-color: #e04a4a;
+button:hover {
+  background-color: red;
 }
 
-.mensagem {
-  margin-top: 20px;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-}
-
-.linkCadastro {
+.link-pequeno {
   display: block;
-  margin-top: 30px;
+  margin-top: 20px;
   color: #aaa;
-  font-family: Arial, sans-serif;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.linkCadastro a {
-  color: #d13a3a;
-  font-weight: 700;
+.link-pequeno:hover {
+  color: white;
+}
+
+.msg {
+  margin-top: 15px;
+  font-weight: bold;
 }

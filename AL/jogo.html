@@ -2,17 +2,18 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <title>Boxing Fight Pass - Fase Bônus</title>
+    <title>Fase Bônus - BOXING ANALYTICS</title>
     <link rel="stylesheet" href="jogo.css" />
   </head>
   <body>
-    <header class="barraNavegacao">
+    
+    <div class="barra-topo">
       <div class="conteiner">
         <a href="casa.html" class="logo">BOXING FIGHT PASS</a>
       </div>
-    </header>
+    </div>
 
-    <div class="conteinerPrincipal">
+    <div class="conteiner">
       <h1>FASE BÔNUS: DESTRUA O CARRO</h1>
 
       <div id="cenario">
@@ -20,17 +21,19 @@
         <img id="imgLutador" src="sprites/lutadorParado.png" />
       </div>
 
-      <div id="painel">
-        <div class="textoVida">
-          Vida do Carro: <span id="spanVida" class="corDestaque">100</span>%
+      <div class="painel">
+        <div class="info-vida">
+          Vida do Carro: <span id="spanVida" class="destaque">100</span>%
         </div>
-        <div id="mensagemAcao" class="textoMensagem">Prepare-se...</div>
+        
+        <div id="mensagemAcao" class="mensagem">Prepare-se...</div>
 
-        <div class="botoesJogo">
-          <button class="botaoAcao" onmousedown="bater()" onmouseup="voltar()">
-            SOCAR O CARRO
+        <div class="botoes">
+          <button class="botao-socar" onmousedown="bater()" onmouseup="voltar()">
+            SOCAR
           </button>
-          <button class="botaoReiniciar" onclick="reiniciarJogo()">
+          
+          <button class="botao-reiniciar" onclick="reiniciarJogo()">
             REINICIAR
           </button>
         </div>

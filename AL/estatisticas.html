@@ -3,23 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Estatísticas - Boxing Fight Pass</title>
+    <title>Estatísticas - BOXING ANALYTICS</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="estatisticas.css" />
   </head>
   <body onload="iniciarPagina()">
-    <header class="barraNavegacao">
+    <div class="cabecalho">
       <div class="conteiner">
         <a href="casa.html" class="logo">BOXING FIGHT PASS</a>
-        <nav>
-          <a href="login.html" class="botaoSair">Sair</a>
-        </nav>
+        <div class="menu-topo">
+          <a href="login.html" class="botao-sair">SAIR</a>
+        </div>
       </div>
-    </header>
+    </div>
 
-    <div class="conteinerPrincipal">
-      <div class="colunaEsquerda">
+    <div class="conteiner-principal">
+      <div class="coluna-esquerda">
+        <div class="menu-modulos">
+          <button class="botao-modulo ativo">🥊 ANÁLISE DE LUTAS</button>
+          <a href="lutadores.html" class="botao-modulo">👤 PERFIL ATLETAS</a>
+        </div>
+        <hr style="border-color: #444; margin-bottom: 20px" />
         <h3>Filtrar Lutas</h3>
+
+        <div class="botoes-aba">
+          <button
+            id="btnTodos"
+            class="botao-aba ativo"
+            onclick="abaAtual='todos'; filtrarLutas()"
+          >
+            Todos
+          </button>
+          <button
+            id="btnFavoritos"
+            class="botao-aba"
+            onclick="abaAtual='favoritos'; filtrarLutas()"
+          >
+            Favoritos
+          </button>
+        </div>
 
         <input
           type="text"
@@ -28,7 +50,7 @@
           onkeyup="filtrarLutas()"
         />
 
-        <div class="filtrosLinha">
+        <div class="filtros-linha">
           <select id="selectCampeonato" onchange="filtrarLutas()">
             <option value="">Organização</option>
             <option value="WBA">WBA</option>
@@ -52,91 +74,85 @@
           <option value="Leve">Peso Leve</option>
         </select>
 
-        <div id="listaDeLutas" class="listaLutas"></div>
+        <div id="listaDeLutas" class="lista-lutas"></div>
       </div>
 
-      <div class="colunaDireita">
+      <div class="coluna-direita">
         <h1>Análise da Luta</h1>
-        <p class="subtitulo" id="subtituloLuta">Carregando...</p>
+        <p class="subtitulo" id="subtituloLuta">Selecione uma luta...</p>
 
-        <div class="cartaoComparacao">
-          <div class="lutadorEsquerda">
+        <div class="cartao-comparacao">
+          <div class="lutador">
             <img id="imgLutadorA" src="" alt="Lutador A" />
-            <h2 id="nomeLutadorA"></h2>
-            <span id="statusA" class="badgeStatus"></span>
+            <h2 id="nomeLutadorA">
+              Nome A
+              <span id="estrelaA" class="estrela" onclick="clicarEstrela()"
+                >☆</span
+              >
+            </h2>
+            <span id="statusA" class="badge">--</span>
           </div>
 
-          <div class="tabelaDados">
-            <div class="linhaDado">
-              <span id="idadeA"></span>
-              <span class="rotulo">IDADE</span>
+          <div class="tabela-dados">
+            <div class="linha-dado">
+              <span id="idadeA"></span> <span>IDADE</span>
               <span id="idadeB"></span>
             </div>
-            <div class="linhaDado">
-              <span id="alturaA"></span>
-              <span class="rotulo">ALTURA</span>
+            <div class="linha-dado">
+              <span id="alturaA"></span> <span>ALTURA</span>
               <span id="alturaB"></span>
             </div>
-            <div class="linhaDado">
-              <span id="alcanceA"></span>
-              <span class="rotulo">ALCANCE</span>
+            <div class="linha-dado">
+              <span id="alcanceA"></span> <span>ALCANCE</span>
               <span id="alcanceB"></span>
             </div>
-            <div class="linhaDado">
-              <span id="cartelA"></span>
-              <span class="rotulo">CARTEL</span>
+            <div class="linha-dado">
+              <span id="cartelA"></span> <span>CARTEL</span>
               <span id="cartelB"></span>
             </div>
           </div>
 
-          <div class="lutadorDireita">
+          <div class="lutador">
             <img id="imgLutadorB" src="" alt="Lutador B" />
-            <h2 id="nomeLutadorB"></h2>
-            <span id="statusB" class="badgeStatus"></span>
+            <h2 id="nomeLutadorB">
+              Nome B
+              <span id="estrelaB" class="estrela" onclick="clicarEstrela()"
+                >☆</span
+              >
+            </h2>
+            <span id="statusB" class="badge">--</span>
           </div>
         </div>
 
-        <div class="painelGraficos">
-          <div class="cartaoGrafico">
-            <h3>Método de Vitória (Carreira)</h3>
-            <div class="areaCanvas">
-              <canvas id="graficoRosca"></canvas>
-            </div>
+        <div class="painel-graficos">
+          <div class="grafico-box">
+            <h3>Método de Vitória</h3>
+            <canvas id="graficoRosca"></canvas>
           </div>
 
-          <div class="cartaoGrafico">
-            <h3>Golpes Conectados (Nesta Luta)</h3>
-            <div class="areaCanvas">
-              <canvas id="graficoBarras"></canvas>
-            </div>
+          <div class="grafico-box">
+            <h3>Golpes Conectados</h3>
+            <canvas id="graficoBarras"></canvas>
           </div>
         </div>
 
-        <div class="cartaoPontuacao">
-          <h3>Sistema de Pontuação (10 Pontos)</h3>
-          <div class="gridRegras">
-            <div class="itemRegra">
-              <h4>Vencedor do Round</h4>
-              <span class="pontosDestaque">10 Pontos</span>
-              <p>Recebe a pontuação máxima por dominar a ação.</p>
+        <div class="cartao-pontuacao">
+          <h3>Sistema de Pontuação por round</h3>
+          <div class="grid-regras">
+            <div class="regra">
+              <h4>Vencedor</h4>
+              <span class="destaque-ponto">10 Pontos</span>
+              <p>Domínio da ação.</p>
             </div>
-            <div class="itemRegra">
-              <h4>Perdedor do Round</h4>
-              <span class="pontosDestaque">9 Pontos</span>
-              <p>Recebe 9 ou menos dependendo do desempenho.</p>
+            <div class="regra">
+              <h4>Perdedor</h4>
+              <span class="destaque-ponto">9 Pontos</span>
+              <p>Menor desempenho.</p>
             </div>
-            <div class="itemRegra">
-              <h4>Knockdown (Queda)</h4>
-              <span class="pontosDestaque">-1 Ponto</span>
-              <p>Lutador que cai perde 1 ponto extra (10-8).</p>
-            </div>
-            <div class="itemRegra">
-              <h4>Critérios Avaliados</h4>
-              <ul class="listaCriterios">
-                <li>Quantidade de Golpes</li>
-                <li>Domínio do Ringue</li>
-                <li>Superioridade Técnica</li>
-              </ul>
+            <div class="regra">
+              <h4>Queda</h4>
+              <span class="destaque-ponto">-1 Ponto</span>
+              <p>Perde ponto extra.</p>
             </div>
           </div>
         </div>

@@ -1,175 +1,274 @@
+/* Variáveis globais */
+var chartRosca = null;
+var chartBarras = null;
+var indiceAtual = 0;
+var abaAtual = "todos"; 
+
 var vetorLutas = [
-  { titulo: "Tyson vs Holyfield", campeonato: "WBA", ano: 1996, categoria: "Pesado" },
-  { titulo: "Ali vs Frazier", campeonato: "WBC", ano: 1975, categoria: "Pesado" },
-  { titulo: "Popó vs Castillo", campeonato: "WBO", ano: 2000, categoria: "Leve" },
-  { titulo: "Mayweather vs Pacquiao", campeonato: "WBA", ano: 2015, categoria: "Medio" },
-  { titulo: "Fury vs Wilder", campeonato: "WBC", ano: 2020, categoria: "Pesado" },
-  { titulo: "Canelo vs GGG", campeonato: "IBF", ano: 2017, categoria: "Medio" }
+  { 
+    titulo: "Tyson vs Holyfield", 
+    campeonato: "WBA", 
+    ano: 1996, 
+    categoria: "Pesado",
+    favorito: false,
+    
+    estatisticasLuta: { golpesA: 150, golpesB: 180 },
+
+    lutadorA: {
+      nome: "Mike Tyson",
+      idade: "30", 
+      altura: 1.78,
+      alcance: 1.80,
+      cartelTexto: "50-6-0", 
+      urlImagem: "https://cdn.fightfax.com/profiles_avatar/pictures/mike-tyson-991330-1730802287.png",
+      vitoriasKo: 44,
+      vitoriasDecisao: 6,
+      resultadoLuta: "PERDEDOR (TKO)"
+    },
+    
+    lutadorB: {
+      nome: "Holyfield",
+      idade: "34",
+      altura: 1.89,
+      alcance: 1.97,
+      cartelTexto: "44-10-2",
+      urlImagem: "https://static.wixstatic.com/media/2af6dc_16b0ede7e09a4b1487e92206a9348825~mv2.png/v1/crop/x_0,y_0,w_500,h_499/fill/w_502,h_504,fp_0.50_0.50,lg_1,q_85,enc_avif,quality_auto/real%20deal-3.png",
+      vitoriasKo: 29,
+      vitoriasDecisao: 15,
+      resultadoLuta: "VENCEDOR"
+    }
+  },
+  { 
+    titulo: "Ali vs Frazier", 
+    campeonato: "WBC", 
+    ano: 1975, 
+    categoria: "Pesado",
+    favorito: false,
+    
+    estatisticasLuta: { golpesA: 230, golpesB: 200 },
+    
+    lutadorA: {
+      nome: "Muhammad Ali",
+      idade: "33",
+      altura: 1.91,
+      alcance: 1.98,
+      cartelTexto: "56-5-0",
+      urlImagem: "https://cdn.britannica.com/86/192386-050-D7F3126D/Muhammad-Ali-American.jpg", 
+      vitoriasKo: 37,
+      vitoriasDecisao: 19,
+      resultadoLuta: "VENCEDOR"
+    },
+    lutadorB: {
+      nome: "Joe Frazier",
+      idade: "31",
+      altura: 1.82,
+      alcance: 1.85,
+      cartelTexto: "32-4-1",
+      urlImagem: "https://cdn.britannica.com/93/225193-050-73961219/American-boxer-Joe-Frazier-1969.jpg", 
+      vitoriasKo: 27,
+      vitoriasDecisao: 5,
+      resultadoLuta: "PERDEDOR"
+    }
+  }
 ];
 
 function iniciarPagina() {
-  carregarDadosLutaPrincipal();
-  listarLutas(vetorLutas);
+  listarLutas();
+  indiceAtual = 0;
+  carregarLuta();
 }
 
-function listarLutas(lista) {
+function listarLutas() {
   listaDeLutas.innerHTML = "";
 
-  for (var i = 0; i < lista.length; i++) {
-    var luta = lista[i];
-    listaDeLutas.innerHTML += `
-      <div class="itemLista">
-        <span class="itemTitulo">${luta.titulo}</span>
-        <span class="itemDetalhe">${luta.campeonato} | ${luta.ano} | ${luta.categoria}</span>
-      </div>
-    `;
+  // Atualiza estilo dos botões da aba
+  if (abaAtual == "todos") {
+      btnTodos.className = "botao-aba ativo";
+      btnFavoritos.className = "botao-aba";
+  } else {
+      btnTodos.className = "botao-aba";
+      btnFavoritos.className = "botao-aba ativo";
   }
-}
 
-function filtrarLutas() {
-  var termoBusca = inputBusca.value.toLowerCase();
-  var termoCampeonato = selectCampeonato.value;
-  var termoAno = inputAno.value;
-  var termoCategoria = selectCategoria.value;
-
-  var listaFiltrada = [];
+  // Filtros
+  var termo = inputBusca.value.toLowerCase();
+  var filtroCamp = selectCampeonato.value;
+  var filtroCat = selectCategoria.value;
+  var filtroAno = inputAno.value;
 
   for (var i = 0; i < vetorLutas.length; i++) {
     var luta = vetorLutas[i];
-    
-    var bateuBusca = luta.titulo.toLowerCase().includes(termoBusca);
-    var bateuCampeonato = termoCampeonato == "" || luta.campeonato == termoCampeonato;
-    var bateuAno = termoAno == "" || luta.ano == termoAno;
-    var bateuCategoria = termoCategoria == "" || luta.categoria == termoCategoria;
+    var tituloMin = luta.titulo.toLowerCase();
 
-    if (bateuBusca && bateuCampeonato && bateuAno && bateuCategoria) {
-      listaFiltrada.push(luta);
+    var passouBusca = false;
+    if (tituloMin.indexOf(termo) >= 0) {
+        passouBusca = true;
+    }
+
+    var passouCamp = false;
+    if (filtroCamp == "" || luta.campeonato == filtroCamp) {
+        passouCamp = true;
+    }
+
+    var passouCat = false;
+    if (filtroCat == "" || luta.categoria == filtroCat) {
+        passouCat = true;
+    }
+
+    var passouAno = false;
+    if (filtroAno == "" || luta.ano == filtroAno) {
+        passouAno = true;
+    }
+    
+    var passouAba = true;
+    if (abaAtual == "favoritos") {
+        if (luta.favorito == false) {
+            passouAba = false;
+        }
+    }
+
+    if (passouBusca && passouCamp && passouCat && passouAno && passouAba) {
+        listaDeLutas.innerHTML += `
+          <div class="item-lista" onclick="indiceAtual = ${i}; carregarLuta()">
+            <img src="${luta.lutadorA.urlImagem}" class="foto-pequena">
+            <div>
+                <span class="titulo-luta">${luta.titulo}</span>
+                <span class="detalhe-luta">${luta.campeonato} | ${luta.ano} | ${luta.categoria}</span>
+            </div>
+          </div>
+        `;
     }
   }
-
-  listarLutas(listaFiltrada);
 }
 
-function carregarDadosLutaPrincipal() {
-  var dadosLuta = {
-    anoEvento: "1996", // ADICIONADO O ANO DA LUTA AQUI
-    lutadorA: {
-      nome: "Mike Tyson",
-      idade: "30",
-      altura: "1.78 m",
-      alcance: "1.80 m",
-      cartel: "45-1-0",
-      foto: "https://cdn.fightfax.com/profiles_avatar/pictures/mike-tyson-991330-1730802287.png",
-      vitoriasKo: 44,
-      vitoriasDecisao: 1,
-      resultado: "PERDEDOR (TKO)"
-    },
-    lutadorB: {
-      nome: "Evander Holyfield",
-      idade: "34",
-      altura: "1.89 m",
-      alcance: "1.97 m",
-      cartel: "32-3-0",
-      foto: "https://static.wixstatic.com/media/2af6dc_16b0ede7e09a4b1487e92206a9348825~mv2.png/v1/crop/x_0,y_0,w_500,h_499/fill/w_502,h_504,fp_0.50_0.50,lg_1,q_85,enc_avif,quality_auto/real%20deal-3.png",
-      vitoriasKo: 23,
-      vitoriasDecisao: 9,
-      resultado: "VENCEDOR"
-    },
-    estatisticasGolpes: {
-      tysonConectados: 150,
-      holyfieldConectados: 180
-    }
-  };
+function carregarLuta() {
+  var dados = vetorLutas[indiceAtual];
 
+  subtituloLuta.innerHTML = `${dados.lutadorA.nome} vs ${dados.lutadorB.nome} (${dados.ano})`;
 
-  subtituloLuta.innerHTML = `${dadosLuta.lutadorA.nome} vs ${dadosLuta.lutadorB.nome} (${dadosLuta.anoEvento}) - Estatísticas Oficiais`;
-
-  nomeLutadorA.innerHTML = dadosLuta.lutadorA.nome;
-  imgLutadorA.src = dadosLuta.lutadorA.foto;
-  idadeA.innerHTML = dadosLuta.lutadorA.idade;
-  alturaA.innerHTML = dadosLuta.lutadorA.altura;
-  alcanceA.innerHTML = dadosLuta.lutadorA.alcance;
-  cartelA.innerHTML = dadosLuta.lutadorA.cartel;
+  /* Lutador A */
+  nomeLutadorA.innerHTML = dados.lutadorA.nome + ' <span id="estrelaA" class="estrela" onclick="clicarEstrela()">☆</span>';
+  imgLutadorA.src = dados.lutadorA.urlImagem;
+  idadeA.innerHTML = dados.lutadorA.idade;
+  alturaA.innerHTML = dados.lutadorA.altura;
+  alcanceA.innerHTML = dados.lutadorA.alcance;
+  cartelA.innerHTML = dados.lutadorA.cartelTexto;
   
-  statusA.innerHTML = dadosLuta.lutadorA.resultado;
-  if (dadosLuta.lutadorA.resultado.includes("VENCEDOR")) {
-    statusA.className = "badgeStatus badgeVencedor";
+  statusA.innerHTML = dados.lutadorA.resultadoLuta;
+  if (dados.lutadorA.resultadoLuta.indexOf("VENCEDOR") >= 0) {
+      statusA.className = "badge badgeVencedor";
   } else {
-    statusA.className = "badgeStatus badgePerdedor";
+      statusA.className = "badge badgePerdedor";
   }
 
-  nomeLutadorB.innerHTML = dadosLuta.lutadorB.nome;
-  imgLutadorB.src = dadosLuta.lutadorB.foto;
-  idadeB.innerHTML = dadosLuta.lutadorB.idade;
-  alturaB.innerHTML = dadosLuta.lutadorB.altura;
-  alcanceB.innerHTML = dadosLuta.lutadorB.alcance;
-  cartelB.innerHTML = dadosLuta.lutadorB.cartel;
-
-  statusB.innerHTML = dadosLuta.lutadorB.resultado;
-  if (dadosLuta.lutadorB.resultado.includes("VENCEDOR")) {
-    statusB.className = "badgeStatus badgeVencedor";
+  /* Lutador B */
+  nomeLutadorB.innerHTML = dados.lutadorB.nome + ' <span id="estrelaB" class="estrela" onclick="clicarEstrela()">☆</span>';
+  imgLutadorB.src = dados.lutadorB.urlImagem;
+  idadeB.innerHTML = dados.lutadorB.idade;
+  alturaB.innerHTML = dados.lutadorB.altura;
+  alcanceB.innerHTML = dados.lutadorB.alcance;
+  cartelB.innerHTML = dados.lutadorB.cartelTexto;
+  
+  statusB.innerHTML = dados.lutadorB.resultadoLuta;
+  if (dados.lutadorB.resultadoLuta.indexOf("VENCEDOR") >= 0) {
+      statusB.className = "badge badgeVencedor";
   } else {
-    statusB.className = "badgeStatus badgePerdedor";
+      statusB.className = "badge badgePerdedor";
+  }
+
+  /* Atualiza as estrelas visualmente (acesso direto pelo ID) */
+  if (dados.favorito == true) {
+      estrelaA.className = "estrela estrela-amarela";
+      estrelaA.innerHTML = "★";
+      
+      estrelaB.className = "estrela estrela-amarela";
+      estrelaB.innerHTML = "★";
+  } else {
+      estrelaA.className = "estrela";
+      estrelaA.innerHTML = "☆";
+      
+      estrelaB.className = "estrela";
+      estrelaB.innerHTML = "☆";
+  }
+
+  atualizarGraficos();
+}
+
+/* Função para filtrar chamada pelos inputs no HTML */
+function filtrarLutas() {
+    // A função listarLutas já verifica os inputs, então é só chamar ela
+    listarLutas();
+}
+
+function clicarEstrela() {
+    var dados = vetorLutas[indiceAtual];
+
+    if (dados.favorito == false) {
+        dados.favorito = true;
+        alert("Luta adicionada aos Favoritos!");
+    } else {
+        dados.favorito = false;
+        alert("Luta removida dos Favoritos!");
+    }
+
+    carregarLuta();
+    listarLutas();
+}
+
+function atualizarGraficos() {
+  var dados = vetorLutas[indiceAtual];
+
+  if (chartRosca != null) {
+    chartRosca.destroy();
+  }
+  if (chartBarras != null) {
+    chartBarras.destroy();
   }
 
   var contextoRosca = graficoRosca.getContext("2d");
-  new Chart(contextoRosca, {
+  chartRosca = new Chart(contextoRosca, {
     type: "doughnut",
     data: {
-      labels: ["Nocautes (Tyson)", "Decisão (Tyson)", "Nocautes (Holyfield)", "Decisão (Holyfield)"],
+      labels: ["KO (A)", "Decisão (A)", "KO (B)", "Decisão (B)"],
       datasets: [{
         data: [
-          dadosLuta.lutadorA.vitoriasKo,
-          dadosLuta.lutadorA.vitoriasDecisao,
-          dadosLuta.lutadorB.vitoriasKo,
-          dadosLuta.lutadorB.vitoriasDecisao
+          dados.lutadorA.vitoriasKo,
+          dados.lutadorA.vitoriasDecisao,
+          dados.lutadorB.vitoriasKo,
+          dados.lutadorB.vitoriasDecisao
         ],
         backgroundColor: ["#d13a3a", "#882525", "#ffffff", "#cccccc"],
         borderWidth: 0
       }]
     },
     options: {
-      plugins: {
-        legend: {
-          labels: { color: "white" }
-        }
-      }
+      plugins: { legend: { labels: { color: "white" } } }
     }
   });
 
   var contextoBarras = graficoBarras.getContext("2d");
-  new Chart(contextoBarras, {
+  chartBarras = new Chart(contextoBarras, {
     type: "bar",
     data: {
       labels: ["Golpes Conectados"],
       datasets: [
         {
-          label: dadosLuta.lutadorA.nome,
-          data: [dadosLuta.estatisticasGolpes.tysonConectados],
+          label: dados.lutadorA.nome,
+          data: [dados.estatisticasLuta.golpesA],
           backgroundColor: "#d13a3a"
         },
         {
-          label: dadosLuta.lutadorB.nome,
-          data: [dadosLuta.estatisticasGolpes.holyfieldConectados],
+          label: dados.lutadorB.nome,
+          data: [dados.estatisticasLuta.golpesB],
           backgroundColor: "#ffffff"
         }
       ]
     },
     options: {
-      plugins: {
-        legend: {
-          labels: { color: "white" }
-        }
-      },
+      plugins: { legend: { labels: { color: "white" } } },
       scales: {
-        y: {
-          ticks: { color: "white" },
-          grid: { color: "#444" }
-        },
-        x: {
-          ticks: { color: "white" },
-          grid: { display: false }
-        }
+        y: { ticks: { color: "white" }, grid: { color: "#444" } },
+        x: { ticks: { color: "white" }, grid: { display: false } }
       }
     }
   });

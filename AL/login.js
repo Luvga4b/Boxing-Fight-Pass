@@ -1,22 +1,20 @@
-function fazerLogin() {
-  var email = iptEmail.value;
-  var senha = iptSenha.value;
+function entrar() {
+    var email = iptEmail.value;
+    var senha = iptSenha.value;
 
-  mensagemErro.innerHTML = "";
-  mensagemErro.style.color = "#d13a3a";
+    mensagemErro.innerHTML = "";
+    mensagemErro.style.color = "#d13a3a";
 
-  if (email == "" || senha == "") {
-    mensagemErro.innerHTML = "Por favor, preencha todos os campos.";
-  } else if (!email.includes("@")) {
-    mensagemErro.innerHTML = "Por favor, insira um e-mail válido.";
-  } else {
-    if (email == "admin@boxing.com" && senha == "12345678") {
-      mensagemErro.innerHTML = "Login efetuado com sucesso!";
-      mensagemErro.style.color = "#9DC284";
-
-      location.href = "dashboard.html";
+    if (email == "" || senha == "") {
+        mensagemErro.innerHTML = "Preencha todos os campos.";
     } else {
-      mensagemErro.innerHTML = "E-mail ou senha inválidos.";
+        if (email == "admin@sptech.school" && senha == "12345678") {
+            mensagemErro.style.color = "#9DC284";
+            mensagemErro.innerHTML = "Sucesso! Entrando...";
+            
+            window.location.href = "estatisticas.html";
+        } else {
+            mensagemErro.innerHTML = "E-mail ou senha incorretos.";
+        }
     }
-  }
 }

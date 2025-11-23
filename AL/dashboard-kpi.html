@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestão KPIs - Boxing Analytics</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body onload="carregarKPIs()">
+    <div class="cabecalho">
+      <div class="conteiner">
+        <a href="casa.html" class="logo">BOXING ANALYTICS | GESTÃO</a>
+        <div class="menu-topo">
+          <a href="casa.html" class="botao-sair">VOLTAR</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="conteiner principal">
+      <h1>Painel de Métricas</h1>
+      <p class="descricao-pagina">Visão geral do engajamento da plataforma.</p>
+
+      <div class="area-kpis">
+        <div class="card-kpi">
+          <h3>Total de Usuários Cadastrados</h3>
+          <span id="kpiUsuarios">0</span>
+        </div>
+        <div class="card-kpi">
+          <h3>Usuarios que jogaram</h3>
+          <span id="kpiJogadores">0</span>
+        </div>
+      </div>
+
+      <div class="painel-graficos-kpi">
+        <div class="box-grafico-largo">
+          <h3>Ranking de Popularidade: Lutadores</h3>
+          <div class="area-canvas">
+            <canvas id="graficoLutadores"></canvas>
+          </div>
+        </div>
+
+        <div class="box-grafico-largo">
+          <h3>Ranking de Engajamento: Lutas</h3>
+          <div class="area-canvas">
+            <canvas id="graficoLutas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="dashboard-kpi.js"></script>
+  </body>
+</html>

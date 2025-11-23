@@ -3,35 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Boxing Fight Pass</title>
+    <title>Login - Boxing Analytics</title>
     <link rel="stylesheet" href="login.css" />
   </head>
   <body>
-    <div class="containerFormulario">
-      <div class="cartaoFormulario">
-        <a href="casa.html" class="logo">BOXING FIGHT PASS</a>
+    <div class="caixa-login">
+      <a href="casa.html" class="logo">BOXING ANALYTICS</a>
 
-        <h1>Entrar</h1>
-        <p>Acesse sua conta para ver o melhor do boxe.</p>
+      <h1>Login</h1>
+      <p>Entre para consultar as métricas.</p>
 
-        <div class="grupoCampo">
-          <label for="iptEmail">Seu E-mail</label>
-          <input type="email" id="iptEmail" placeholder="seu@email.com" />
-        </div>
+      <label>E-mail Corporativo / Usuário</label>
+      <input type="email" id="iptEmail" placeholder="analista@boxing.com" />
 
-        <div class="grupoCampo">
-          <label for="iptSenha">Sua Senha</label>
-          <input type="password" id="iptSenha" placeholder="••••••••" />
-        </div>
+      <label>Senha</label>
+      <input type="password" id="iptSenha" placeholder="••••••••" />
 
-        <button class="botaoAcao" onclick="fazerLogin()">Entrar</button>
+      <button onclick="entrar()">ACESSAR SISTEMA</button>
 
-        <div id="mensagemErro" class="mensagem"></div>
+      <div id="mensagemErro" class="msg"></div>
 
-        <span class="linkCadastro">
-          Não tem uma conta? <a href="cadastro.html">Cadastre-se</a>
-        </span>
-      </div>
+      <a href="cadastro.html" class="link-pequeno"
+        >Solicitar acesso (Cadastro)</a
+      >
+      <a href="casa.html" class="link-pequeno">Voltar para Home</a>
     </div>
 
     <script src="login.js"></script>

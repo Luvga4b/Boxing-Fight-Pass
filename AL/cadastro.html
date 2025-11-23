@@ -3,53 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro - Boxing Fight Pass</title>
+    <title>Cadastro - Boxing Analytics</title>
     <link rel="stylesheet" href="cadastro.css" />
   </head>
   <body>
-    <div class="containerFormulario">
-      <div class="cartaoFormulario">
-        <a href="casa.html" class="logo">BOXING FIGHT PASS</a>
+    <div class="caixa-cadastro">
+      <a href="casa.html" class="logo">BOXING ANALYTICS</a>
 
-        <h1>Crie sua Conta</h1>
-        <p>É rápido e fácil. Comece a assistir agora.</p>
+      <h1>Novo Analista</h1>
+      <p>Crie sua credencial de acesso aos dados.</p>
 
-        <div class="grupoCampo">
-          <label for="iptNome">Seu Nome</label>
-          <input type="text" id="iptNome" placeholder="Seu nome completo" />
-        </div>
+      <label>Nome Completo</label>
+      <input type="text" id="iptNome" placeholder="Ex: João Silva" />
 
-        <div class="grupoCampo">
-          <label for="iptEmail">Seu E-mail</label>
-          <input type="email" id="iptEmail" placeholder="seu@email.com" />
-        </div>
+      <label>Data de Nascimento</label>
+      <input type="date" id="iptNascimento" />
 
-        <div class="grupoCampo">
-          <label for="iptSenha">Crie uma Senha</label>
-          <input
-            type="password"
-            id="iptSenha"
-            placeholder="Mínimo 8 caracteres"
-          />
-        </div>
+      <label>E-mail</label>
+      <input type="email" id="iptEmail" placeholder="seu@email.com" />
 
-        <div class="grupoCampo">
-          <label for="iptConfirmarSenha">Confirme sua Senha</label>
-          <input
-            type="password"
-            id="iptConfirmarSenha"
-            placeholder="Repita a senha"
-          />
-        </div>
+      <label>Senha</label>
+      <input type="password" id="iptSenha" placeholder="Mínimo 8 caracteres" />
 
-        <button class="botaoAcao" onclick="fazerCadastro()">Criar Conta</button>
+      <label>Confirmar Senha</label>
+      <input
+        type="password"
+        id="iptConfirmarSenha"
+        placeholder="Repita a senha"
+      />
 
-        <div id="mensagemErro" class="mensagem"></div>
+      <button onclick="fazerCadastro()">REGISTRAR</button>
 
-        <span class="linkLogin">
-          Já tem uma conta? <a href="login.html">Faça login</a>
-        </span>
-      </div>
+      <div id="mensagemErro" class="msg"></div>
+
+      <a href="login.html" class="link-pequeno">Já possuo credencial</a>
+      <a href="casa.html" class="link-pequeno">Voltar</a>
     </div>
 
     <script src="cadastro.js"></script>

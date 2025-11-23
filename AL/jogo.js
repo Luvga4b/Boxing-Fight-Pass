@@ -1,18 +1,11 @@
 var vidaCarro = 100;
 
 function bater() {
-  if (vidaCarro <= 0) {
-    alert("O carro já está destruído! Clique em REINICIAR.");
-    return;
-  }
 
   imgLutador.src = "sprites/lutadorSocando.png";
-
   var dano = Math.random() * 10 + 5;
   var danoInteiro = parseInt(dano);
-
   vidaCarro = vidaCarro - danoInteiro;
-
   if (vidaCarro < 0) {
     vidaCarro = 0;
   }

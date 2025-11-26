@@ -147,6 +147,7 @@ function exibirLutador() {
 function alternarFavorito() {
     var atleta = vetorAtletas[indiceAtual];
     var idUsuario = sessionStorage.ID_USUARIO;
+    console.log(atleta);
 
     // Verifica se usuário está logado
     if (idUsuario == undefined) {
@@ -158,8 +159,7 @@ function alternarFavorito() {
     if (atleta.favorito == false) {
         atleta.favorito = true;
         
-        // --- CÓDIGO NOVO: ENVIAR PARA O BANCO ---
-        // Adiciona 1 ao índice porque no banco os IDs começam em 1
+        console.log("LUTADOR.JS");
         var idLutadorBanco = indiceAtual + 1; 
 
         fetch("/usuarios/favoritar/lutador", {
@@ -180,7 +180,6 @@ function alternarFavorito() {
 
     } else {
         atleta.favorito = false;
-        // (Opcional: futuramente você pode criar uma rota para remover o favorito)
         alert("Removido visualmente (remover do banco ainda não implementado)");
     }
 

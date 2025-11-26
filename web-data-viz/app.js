@@ -16,7 +16,7 @@ var app = express();
 // Rotas
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
-var jogoRouter = require("./src/routes/jogo");
+var jogoRouter = require("./src/routes/jogos");
 var dashboardRouter = require("./src/routes/dashboard");
 
 app.use(express.json());
@@ -28,7 +28,7 @@ app.use(cors());
 // Registrando Rotas
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
-app.use("/jogo", jogoRouter);
+app.use("/jogos", jogoRouter);
 app.use("/dashboard", dashboardRouter);
 
 app.listen(PORTA_APP, function () {

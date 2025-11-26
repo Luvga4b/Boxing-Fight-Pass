@@ -11,7 +11,7 @@ function atualizarNumeros() {
     var totalCadastros = 1250; 
     var totalJogadores = 840; 
 
-    // Acesso direto aos IDs (sem document.getElementById)
+    // Acesso direto aos IDs 
     kpiUsuarios.innerHTML = totalCadastros;
     kpiJogadores.innerHTML = totalJogadores;
 }

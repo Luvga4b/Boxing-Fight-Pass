@@ -8,10 +8,14 @@ function salvar(req, res) {
     if (idUsuario == undefined) {
         res.status(400).send("ID do usuário está undefined!");
     } else {
+         console.log("controller");
+         console.log(idUsuario);
         jogoModel.salvar(idUsuario, resultado, pontuacao)
             .then(function (resultado) { res.json(resultado); })
             .catch(function (erro) { res.status(500).json(erro.sqlMessage); });
     }
 }
 
-module.exports = { salvar }
+module.exports = { 
+    salvar
+ }

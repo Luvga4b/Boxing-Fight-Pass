@@ -12,11 +12,14 @@ function autenticar(req, res) {
         usuarioModel.autenticar(email, senha)
             .then(
                 function (resultadoAutenticar) {
+                    
                     if (resultadoAutenticar.length == 1) {
+                        console.log("JSON RECEBIDO:", resultadoAutenticar);
                         res.json({
                             id: resultadoAutenticar[0].idUsuario, // CORRIGIDO AQUI
                             email: resultadoAutenticar[0].email,
-                            nome: resultadoAutenticar[0].nome
+                            nome: resultadoAutenticar[0].nome,
+                            isAdm: resultadoAutenticar[0].isAdm 
                         });
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
@@ -47,8 +50,11 @@ function cadastrar(req, res) {
 }
 
 function favoritarLutador(req, res) {
+    console.log("controller");
     var idUsuario = req.body.idUsuarioServer;
     var idLutador = req.body.idLutadorServer;
+    console.log(idUsuario);
+    console.log(idLutador);
 
     usuarioModel.favoritarLutador(idUsuario, idLutador)
         .then(resultado => res.json(resultado))

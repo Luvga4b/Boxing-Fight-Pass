@@ -96,7 +96,6 @@ button:active {
   min-height: 20px; /* Evita que a tela "pule" quando o texto aparecer */
 }
 
-/* Classes adicionadas para suportar a lógica do JS sem usar style inline */
 .texto-erro {
   color: #d13a3a;
 }

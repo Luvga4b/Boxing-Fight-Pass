@@ -2,7 +2,7 @@ var database = require("../database/config")
 
 function autenticar(email, senha) {
     var instrucaoSql = `
-        SELECT idUsuario, nome, email FROM Usuario WHERE email = '${email}' AND senha = '${senha}';
+        SELECT idUsuario, nome, email,isAdm FROM Usuario WHERE email = '${email}' AND senha = '${senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -17,6 +17,9 @@ function cadastrar(nome, email, senha) {
 }
 
 function favoritarLutador(idUsuario, idLutador) {
+    console.log("model");
+    console.log(idUsuario);
+    console.log(idLutador);
     var instrucao = `INSERT INTO FavoritoLutador (fkUsuario, fkLutador) VALUES (${idUsuario}, ${idLutador});`;
     return database.executar(instrucao);
 }
@@ -29,5 +32,7 @@ function favoritarLuta(idUsuario, idLuta) {
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    favoritarLutador,
+    favoritarLuta
 };

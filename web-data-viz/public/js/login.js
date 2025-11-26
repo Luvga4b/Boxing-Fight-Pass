@@ -29,12 +29,19 @@ function entrar() {
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
+                sessionStorage.IS_ADM = json.isAdm;
 
                 mensagemErro.className = "texto-sucesso";
                 mensagemErro.innerHTML = "Sucesso! Entrando...";
 
                 setTimeout(function () {
-                    window.location = "dashboard-kpi.html";
+                if(sessionStorage.IS_ADM == 1)
+                    {
+                        window.location = "dashboard-kpi.html";
+                    }else{
+                        window.location = "estatisticas.html";
+                    }
+                    
                 }, 1000);
             });
         } else {

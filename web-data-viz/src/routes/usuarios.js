@@ -12,14 +12,14 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
-// --- ADICIONE ISTO AQUI ---
+
 router.post("/favoritar/lutador", function (req, res) {
+    console.log("route");
     usuarioController.favoritarLutador(req, res);
 });
 
 router.post("/favoritar/luta", function (req, res) {
     usuarioController.favoritarLuta(req, res);
 });
-// --------------------------
 
 module.exports = router;

@@ -1,4 +1,9 @@
 function carregarKPIs() {
+    if(sessionStorage.IS_ADM == 0)
+    {
+        alert("Você não um adm");
+        window.location = "index.html";
+    }
     buscarKpisGerais();
     obterDadosGraficoLutadores();
     obterDadosGraficoLutas();

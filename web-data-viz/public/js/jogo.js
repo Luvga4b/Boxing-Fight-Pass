@@ -17,6 +17,7 @@ function bater() {
   mensagemAcao.innerHTML = "POW! Você causou " + danoInteiro + " de dano!";
 
   if (vidaCarro <= 0) {
+    console.log("entrou")
     imgCarro.src = "assets/carroDestruido.png";
     mensagemAcao.innerHTML = "PERFECT! CARRO DESTRUÍDO!";
     mensagemAcao.style.color = "#d13a3a";
@@ -24,7 +25,7 @@ function bater() {
     // SALVAR NO BANCO
     var idUsuario = sessionStorage.ID_USUARIO;
     if (idUsuario > 0) {
-        fetch("/jogo/salvar", {
+        fetch("/jogos/salvar", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -32,7 +33,11 @@ function bater() {
                 pontuacaoServer: 100,
                 resultadoServer: 'Carro Destruido'
             })
-        }).then(res => console.log("Jogo salvo no banco!"));
+        }).then(res => {
+          alert("Parabéns carro destruido com sucesso");
+          reiniciarJogo();
+        }
+        )
     }
 
   } else if (vidaCarro < 50) {

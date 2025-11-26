@@ -103,7 +103,6 @@ body {
   text-align: left;
 }
 
-/* Regra adicionada para substituir style="width:100%" */
 .cartao img {
     width: 100%;
 }

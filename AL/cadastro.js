@@ -1,13 +1,11 @@
 function fazerCadastro() {
     var nome = iptNome.value;
-    // Variável nascimento removida
     var email = iptEmail.value;
     var senha = iptSenha.value;
     var confirmacao = iptConfirmarSenha.value;
 
     mensagemErro.innerHTML = "";
     
-    // Removida a validação (nascimento == "")
     if (nome == "" || email == "" || senha == "" || confirmacao == "") {
         mensagemErro.className = "msg texto-erro";
         mensagemErro.innerHTML = "Por favor, preencha todos os campos.";

@@ -96,10 +96,9 @@ button:active {
 .msg {
   margin-top: 15px;
   font-weight: bold;
-  min-height: 20px; /* Evita pulo de layout */
+  min-height: 20px; 
 }
 
-/* Classes de Feedback */
 .texto-erro {
   color: #d13a3a;
 }

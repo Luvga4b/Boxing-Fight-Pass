@@ -1,30 +1,25 @@
 # Boxing-Fight-Pass
-Projeto de faculdade para a disciplina de pesquisa e inovação na São Paulo Tech School.
-focado em lutas históricas de boxe, permitindo aos usuários assistir a lutas e ver estatísticas detalhadas dos lutadores.
+Projeto acadêmico desenvolvido para a disciplina de Pesquisa e Inovação na São Paulo Tech School (SPTech). Uma plataforma de inteligência esportiva focada no boxe, que transforma estatísticas frias em visualizações gráficas intuitivas (Scouting Visual) e utiliza gamificação para engajamento de usuários.
 
 ## Funcionalidades
-* Streaming de vídeos de lutas.
-* Página de perfil de lutador com estatísticas.
-* Dashboard de estatísticas pós-luta.
-* Sistema de login e cadastro de usuários.
+Scouting Digital (Perfil de Atleta): Visualização de atributos técnicos (Força, Velocidade, Técnica, etc.) através de Gráficos de Radar interativos (Chart.js).
+Análise de Lutas: Filtros dinâmicos para consulta de histórico de combates por categoria, ano e organização.
+Dashboard de Gestão (KPIs): Painel administrativo para monitoramento de métricas de engajamento (total de usuários e jogadores).
+Gamificação (Fase Bônus): Minigame interativo ("Destrua o Carro") integrado ao banco de dados para aumentar a retenção do usuário.
+Sistema de Acesso: Autenticação segura (Login e Cadastro) com validação de sessão.
 
 ## Tecnologias Utilizadas
-* JS
-* API
-* CSS
-* HTML
+Front-end: HTML5, CSS3, JavaScript (Client-side).
+Data Viz: Chart.js (Biblioteca gráfica).
+Back-end: Node.js, Express (Arquitetura MVC baseada no Web Data Viz).
+Banco de Dados: MySQL (Modelagem Relacional).
+Infraestrutura: Banco de dados hospedado em Máquina Virtual (Linux/VirtualBox) simulando ambiente de produção.
  
 ## O contexto
-Atualmente, os fãs de boxe enfrentam um cenário de grande fragmentação para consumir o esporte. O problema se divide em dois:
-Lutas Históricas e Acervo: Não existe uma biblioteca digital centralizada e de fácil acesso onde fãs, novos ou antigos, possam assistir a lutas clássicas que definiram a história do esporte. Esse acervo encontra-se espalhado em plataformas de vídeo genéricas, muitas vezes com baixa qualidade, ou em arquivos de emissoras de difícil acesso.
-Eventos Ao Vivo: As principais organizações de boxe (como WBA, WBC, IBF e WBO) não possuem um serviço de streaming unificado. As lutas de título e eventos principais são licenciados para diferentes canais de TV por assinatura e serviços de streaming (como ESPN, DAZN, etc.), obrigando o fã a manter múltiplas assinaturas para acompanhar a temporada.
-Essa falta de centralização prejudica a experiência do usuário, diminui o engajamento de novos fãs e dificulta o estudo e a apreciação do esporte.
-A Solução: "Boxing Fight Pass"
-O "Boxing Fight Pass" é um website  proposto para solucionar essa fragmentação. O projeto visa criar uma plataforma única que servirá como um ponto central para o fã de boxe, oferecendo:
-Um acervo organizado de lutas históricas.
-Perfis detalhados de lutadores com estatísticas (KPIs) de carreira.
-ODS 3 - Saúde e Bem-Estar: Ao promover um esporte, a plataforma incentiva indiretamente a prática de atividades físicas, a disciplina e o bem-estar mental associados ao boxe. Ela serve como fonte de inspiração para um estilo de vida mais saudável.
+Atualmente, a indústria do boxe movimenta bilhões, mas a experiência de consumo de dados estatísticos parou no tempo. O fã enfrenta um cenário de fragmentação e falta de clareza visual, Essa falta de inovação dificulta o estudo técnico do esporte e limita a experiência do usuário.
 
-Uma interface de "Dashboard"  para análise de desempenho pós-luta.
+## A solução
+O Boxing Analytics é a resposta tecnológica para modernizar essa análise. O projeto centraliza a inteligência do esporte em um único hub. 
 
-Um sistema de cadastro de usuários  para uma experiência personalizada.
+## ODS 3 - Saúde e Bem-Estar
+O projeto se alinha ao Objetivo de Desenvolvimento Sustentável 3 da ONU. Ao promover o boxe através de uma ótica analítica e disciplinada — e não apenas como combate — a plataforma incentiva a prática esportiva, o foco mental e a dedicação, servindo como fonte de inspiração para um estilo de vida focado em superação e saúde.

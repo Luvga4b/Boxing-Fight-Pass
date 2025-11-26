@@ -146,11 +146,42 @@ function exibirLutador() {
 
 function alternarFavorito() {
     var atleta = vetorAtletas[indiceAtual];
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    // Verifica se usuário está logado
+    if (idUsuario == undefined) {
+        alert("Você precisa fazer login para favoritar!");
+        window.location = "login.html";
+        return;
+    }
 
     if (atleta.favorito == false) {
         atleta.favorito = true;
+        
+        // --- CÓDIGO NOVO: ENVIAR PARA O BANCO ---
+        // Adiciona 1 ao índice porque no banco os IDs começam em 1
+        var idLutadorBanco = indiceAtual + 1; 
+
+        fetch("/usuarios/favoritar/lutador", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                idUsuarioServer: idUsuario,
+                idLutadorServer: idLutadorBanco
+            })
+        }).then(function(resposta) {
+            if (resposta.ok) {
+                console.log("Lutador favoritado com sucesso!");
+            } else {
+                console.log("Erro ao favoritar (Talvez já esteja favoritado?)");
+            }
+        });
+        // ----------------------------------------
+
     } else {
         atleta.favorito = false;
+        // (Opcional: futuramente você pode criar uma rota para remover o favorito)
+        alert("Removido visualmente (remover do banco ainda não implementado)");
     }
 
     exibirLutador();

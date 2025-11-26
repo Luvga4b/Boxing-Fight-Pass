@@ -3,17 +3,18 @@ function entrar() {
     var senha = iptSenha.value;
 
     mensagemErro.innerHTML = "";
-    mensagemErro.style.color = "#d13a3a";
-
+    
     if (email == "" || senha == "") {
+        mensagemErro.className = "texto-erro";
         mensagemErro.innerHTML = "Preencha todos os campos.";
     } else {
         if (email == "admin@sptech.school" && senha == "12345678") {
-            mensagemErro.style.color = "#9DC284";
+            mensagemErro.className = "texto-sucesso";
             mensagemErro.innerHTML = "Sucesso! Entrando...";
             
             window.location.href = "estatisticas.html";
         } else {
+            mensagemErro.className = "texto-erro";
             mensagemErro.innerHTML = "E-mail ou senha incorretos.";
         }
     }

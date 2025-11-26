@@ -202,13 +202,37 @@ function carregarLuta() {
 
 function clicarEstrela() {
     var dados = vetorLutas[indiceAtual];
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    if (idUsuario == undefined) {
+        alert("Faça login para favoritar lutas!");
+        window.location = "login.html";
+        return;
+    }
 
     if (dados.favorito == false) {
         dados.favorito = true;
-        alert("Luta adicionada aos Favoritos!");
+        alert("Luta favoritada!");
+
+        // --- CÓDIGO NOVO: ENVIAR PARA O BANCO ---
+        var idLutaBanco = indiceAtual + 1; 
+
+        fetch("/usuarios/favoritar/luta", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                idUsuarioServer: idUsuario,
+                idLutaServer: idLutaBanco
+            })
+        }).then(function(resposta) {
+            if (resposta.ok) {
+                console.log("Luta favoritada no banco!");
+            }
+        });
+        // ----------------------------------------
+
     } else {
         dados.favorito = false;
-        alert("Luta removida dos Favoritos!");
     }
 
     carregarLuta();

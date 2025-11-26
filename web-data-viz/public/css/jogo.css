@@ -1,0 +1,132 @@
+/* Reset básico */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a; /* Fundo escuro */
+  color: white;
+  text-align: center; /* Centraliza textos da página */
+}
+
+/* Barra do topo */
+.barra-topo {
+  background-color: black;
+  padding: 15px 0;
+  border-bottom: 1px solid #333;
+  text-align: left; /* Logo fica na esquerda */
+}
+
+.conteiner {
+  width: 1000px;
+  margin: 0 auto; /* Centraliza as caixas */
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+h1 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* --- O Cenário do Jogo --- */
+#cenario {
+  width: 600px;
+  height: 400px;
+  margin: 0 auto; /* Centraliza o cenário */
+  background-color: #333;
+  border: 4px solid white;
+  
+  /* Imagem de fundo do cenário */
+  background-image: url("https://i.pinimg.com/736x/f3/ab/84/f3ab8417e4249b4165bc0946b1bb247e.jpg");
+  background-size: cover;
+  
+  /* Importante: Define que o que estiver dentro pode usar 'absolute' */
+  position: relative; 
+}
+
+/* Imagens do jogo */
+#imgCarro {
+  width: 350px;
+  position: absolute; /* Posiciona livremente dentro do cenário */
+  bottom: 50px;       /* Distância do chão */
+  left: 150px;        /* Distância da esquerda */
+}
+
+#imgLutador {
+  width: 180px;
+  position: absolute;
+  bottom: 30px;
+  left: 80px;
+  /* O z-index garante que o lutador fique na frente do carro se sobrepor */
+  z-index: 10; 
+}
+
+/* --- Painel de Controle --- */
+.painel {
+  width: 600px;
+  margin: 20px auto;
+  background-color: #2b2b2b;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #444;
+  box-sizing: border-box; /* Para o padding não aumentar a largura */
+}
+
+.info-vida {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.destaque {
+  color: #d13a3a; /* Vermelho */
+  font-weight: bold;
+}
+
+.mensagem {
+  color: #ccc;
+  font-size: 18px;
+  margin-bottom: 20px;
+  height: 25px; /* Altura fixa para o texto não pular */
+}
+
+.botoes {
+  /* Centraliza os botões */
+  display: flex; 
+  justify-content: center;
+  gap: 20px;
+}
+
+.botao-socar {
+  background-color: #d13a3a;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.botao-socar:hover {
+  background-color: red;
+}
+
+.botao-reiniciar {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 15px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.botao-reiniciar:hover {
+  background-color: #444;
+}

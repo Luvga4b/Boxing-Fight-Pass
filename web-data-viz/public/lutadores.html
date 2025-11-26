@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Scouting - Boxing Analytics</title>
-    <link rel="stylesheet" href="estatisticas.css">
+    <link rel="stylesheet" href="css/estatisticas.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
-  
+
   <body onload="iniciarPaginaLutadores()">
-    
     <div class="cabecalho">
       <div class="conteiner">
         <a href="index.html" class="logo">BOXING ANALYTICS</a>
@@ -19,26 +18,43 @@
     </div>
 
     <div class="conteiner-principal">
-      
       <div class="coluna-esquerda">
         <div class="menu-modulos">
-          <a href="estatisticas.html" class="botao-modulo">🥊 ANÁLISE DE LUTAS</a>
+          <a href="estatisticas.html" class="botao-modulo"
+            >🥊 ANÁLISE DE LUTAS</a
+          >
           <button class="botao-modulo ativo">👤 PERFIL ATLETAS</button>
         </div>
-        
-        <hr class="divisor-menu">
+
+        <hr class="divisor-menu" />
 
         <h3>Banco de Talentos</h3>
 
         <div class="botoes-aba espaco-aba">
-          <button id="btnTodos" class="botao-aba ativo" onclick="filtrarPorAba('todos')">Todos</button>
-          <button id="btnFavoritos" class="botao-aba" onclick="filtrarPorAba('favoritos')">Favoritos</button>
+          <button
+            id="btnTodos"
+            class="botao-aba ativo"
+            onclick="filtrarPorAba('todos')"
+          >
+            Todos
+          </button>
+          <button
+            id="btnFavoritos"
+            class="botao-aba"
+            onclick="filtrarPorAba('favoritos')"
+          >
+            Favoritos
+          </button>
         </div>
 
-        <input type="text" id="inputBusca" placeholder="Buscar atleta..." onkeyup="filtrarLutadores()">
+        <input
+          type="text"
+          id="inputBusca"
+          placeholder="Buscar atleta..."
+          onkeyup="filtrarLutadores()"
+        />
 
-        <div id="listaLutadores" class="lista-lutas">
-            </div>
+        <div id="listaLutadores" class="lista-lutas"></div>
       </div>
 
       <div class="coluna-direita">
@@ -47,10 +63,15 @@
 
         <div class="cartao-perfil">
           <div class="lutador">
-            <img id="imgPerfil" src="" alt="Foto Perfil">
+            <img id="imgPerfil" src="" alt="Foto Perfil" />
             <h2 id="nomePerfil">
               Selecione...
-              <span id="estrelaFavorito" class="estrela" onclick="alternarFavorito()">☆</span>
+              <span
+                id="estrelaFavorito"
+                class="estrela"
+                onclick="alternarFavorito()"
+                >☆</span
+              >
             </h2>
             <span id="categoriaPerfil" class="badge">--</span>
           </div>
@@ -82,9 +103,8 @@
           </div>
         </div>
       </div>
-
     </div>
 
-    <script src="lutadores.js"></script>
+    <script src="js/lutadores.js"></script>
   </body>
 </html>

@@ -2,20 +2,31 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boxing Analytics - Home</title>
-    <link rel="stylesheet" href="casa.css" />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
-  <body>
+  <body onload="validarSessaoIndex()">
     <div class="cabecalho">
       <div class="conteiner">
-        <a href="casa.html" class="logo">BOXING ANALYTICS</a>
+        <a href="index.html" class="logo">BOXING ANALYTICS</a>
         <div class="menu">
-          <a href="dashboard-kpi.html" class="botao-borda">GESTÃO (KPIs)</a>
-          <a href="estatisticas.html" class="botao-borda">ESTATISTICAS</a>
-          <a href="jogo.html" class="botao-borda">BONUS</a>
-          <a href="login.html" class="botao-vermelho">ENTRAR</a>
-          <a href="cadastro.html" class="botao-vermelho">CRIAR CONTA</a>
+          <div id="menuDeslogado">
+            <a href="login.html" class="botao-vermelho">ENTRAR</a>
+            <a href="cadastro.html" class="botao-vermelho">CRIAR CONTA</a>
+          </div>
+
+          <div id="menuLogado" style="display: none; align-items: center">
+            <a href="dashboard-kpi.html" class="botao-borda">GESTÃO (KPIs)</a>
+            <a href="estatisticas.html" class="botao-borda">ESTATISTICAS</a>
+            <a href="jogo.html" class="botao-borda">BONUS</a>
+
+            <a
+              onclick="sair()"
+              class="botao-vermelho"
+              style="cursor: pointer; margin-left: 20px"
+              >SAIR</a
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -34,12 +45,11 @@
     <div class="secao-branca">
       <div class="conteiner">
         <h2>ANÁLISE DE PERFORMANCE DE ELITE</h2>
-
         <div class="cartao">
+          <!-- Estilo inline removido. A largura de 100% agora está no CSS (.cartao img) -->
           <img
             src="https://a4.espncdn.com/combiner/i?img=%2Fphoto%2F2021%2F0129%2Fr808045_1296x729_16%2D9.jpg"
             alt="Dados Digitais"
-            style="object-fit: cover"
           />
           <h3>COMPARE ATLETAS</h3>
           <p>
@@ -50,6 +60,7 @@
       </div>
       <hr />
     </div>
+
     <div class="secao-planos">
       <div class="conteiner">
         <div class="area-planos">
@@ -59,7 +70,6 @@
               <li>Métricas Avançadas: Golpes conectados, defesa e stamina.</li>
             </ul>
           </div>
-
           <div class="caixa-preco">
             <a href="cadastro.html" class="botao-preco"> CADASTRAR GRÁTIS </a>
           </div>
@@ -76,8 +86,9 @@
             <a href="#">FONTE OFICIAL</a>
           </div>
         </div>
-        <p>© 2024 Boxing Analytics. Todos os direitos reservados.</p>
+        <p>© 2025 Boxing Analytics. Todos os direitos reservados.</p>
       </div>
     </div>
+    <script src="js/sessao.js"></script>
   </body>
 </html>
